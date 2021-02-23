@@ -1,3 +1,3 @@
 git add .
-git commit -m "Changed"
+git commit -m "added routes, basic views"
 git push

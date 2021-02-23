@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from pyAPI import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('patients/', views.patients),
+    path('clinics/', views.clinics),
+    path('appointments/', views.appointments),
+    path('history/', views.history)
 ]
