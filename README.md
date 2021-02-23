@@ -1,5 +1,4 @@
 # medical-backend-py
 
-**Pulled req**
+Django RESTful API:
 
-## 123
