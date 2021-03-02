@@ -4,3 +4,5 @@ env
 .vscode
 gitPush.sh
 __pycache__
+!medical_backend_py/pyAPI/__init__.py
+!medical_backend_py/medical_backend_py/__init__.py
