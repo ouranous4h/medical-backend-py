@@ -6,3 +6,4 @@ gitPush.sh
 __pycache__
 __init__.py
 gitcomms.txt
+db.sqlite3
