@@ -24,8 +24,11 @@ class Doctor(models.Model):
   phone = models.PhoneNumberField(null = False, blank = False, unique = True)
 
   speciality = models.CharField(max_length=50, null = False, blank = False, unique = False)
- 
-## hospital model -> foreign keys doctors
 
+## hospital model -> foreign keys doctors
+class Clinic(models.Model):
+  name = models.CharField(max_length=30, null = False, blank = False, unique = False)
+  phone = models.PhoneNumberField(null = False, blank = False, unique = True)
+  address = models.CharField(max_length=30, null = False, blank = False, unique = False)
 ## medical card (which has diseases(numbers), treatment, diagnose)
             ## to do : area of research -> disease -> diagnosis, treatment
