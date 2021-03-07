@@ -21,10 +21,11 @@ from pyAPI import views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-
-    path('patients/', views.patients), ##tolko dlya doctorov (ih pacienti)
-    path('clinics/', views.clinics), #all clinics available
-    path('doctors/', views.doctors), #all doctors of that clinic
-    path('appointments/', views.appointments),
-    path('history/', views.history)
+    path('login/', views.login),
+    path('register/', views.register)
+    # path('patients/', views.patients), ##tolko dlya doctorov (ih pacienti)
+    # path('clinics/', views.clinics), #all clinics available
+    # path('doctors/', views.doctors), #all doctors of that clinic
+    # path('appointments/', views.appointments),
+    # path('history/', views.history)
 ]
