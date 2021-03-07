@@ -1,36 +1,41 @@
 from django.db import models
 
 
-class userP(models.Model):
+class User(models.Model):
   username = models.CharField(max_length=30)
   email = models.CharField(max_length=30)
-  password = models.CharField(max_length=30)
+  password = models.CharField(max_length=100)
 
-class Patient(models.Model):
+class Clinic(models.Model):
+  name = models.CharField(max_length=30)
+  city = models.CharField(max_length=30)
+  address = models.CharField(max_length=30)
+  phone = models.CharField(max_length=30)
+
+class Person(models.Model):
   name = models.CharField(max_length=30)
   surname = models.CharField(max_length=30)
   middlename = models.CharField(max_length=30)
-  age = models.IntegerField()
+  dob = models.IntegerField() #ddmmyy
   gender = models.CharField(max_length=6)
   phone = models.CharField(max_length=30)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-  userP = models.ForeignKey(userP, on_delete=models.CASCADE)
+class Doctor(models.Model):
+  ### speciality (change maybe to foreign key)
+  speciality = models.CharField(max_length=30)
+  clinic = models.ForeignKey(Clinic, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-# class Doctor(models.Model):
-#   ## add foreign keys -> patients
-#   name = models.CharField(max_length=30, null = False, blank = False, unique = False)
-#   surname = models.CharField(max_length=30, null = False, blank = False, unique = False)
-#   middlename = models.CharField(max_length=30, null = True, blank = True, unique = False)
-#   age = models.IntegerField(null = False, blank = False, unique = False)
-#   gender = models.CharField(max_length=6, null = False, blank = False, unique = False)
-#   phone = models.PhoneNumberField(null = False, blank = False, unique = True)
+class Patient(models.Model):
+  info = models.CharField(max_length=100)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-#   speciality = models.CharField(max_length=50, null = False, blank = False, unique = False)
+class Patient_Doctor(models.Model):
+  patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+  doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
 
-# ## hospital model -> foreign keys doctors
-# class Clinic(models.Model):
-#   name = models.CharField(max_length=30, null = False, blank = False, unique = False)
-#   phone = models.PhoneNumberField(null = False, blank = False, unique = True)
-#   address = models.CharField(max_length=30, null = False, blank = False, unique = False)
+
+
 # ## medical card (which has diseases(numbers), treatment, diagnose)
 #             ## to do : area of research -> disease -> diagnosis, treatment
