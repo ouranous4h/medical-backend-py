@@ -6,6 +6,9 @@ class User(models.Model):
   email = models.CharField(max_length=30)
   password = models.CharField(max_length=100)
 
+class Admin(models.Model):
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 class Clinic(models.Model):
   name = models.CharField(max_length=30)
   city = models.CharField(max_length=30)
