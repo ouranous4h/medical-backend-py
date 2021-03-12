@@ -1,20 +1,22 @@
 # medical-backend-py
 
 # Django RESTful API:
-**/patients -- GET**
+**/login -- POST(username, password)**
 
-**/patients/id -- GET, POST, DELETE, UPDATE**
+**/register -- POST(username, password, password_confirmation, email)**
 
-**/clinics -- GET, ((POST maybe next))**
+**/register_person -- POST(user_id, name, surname, dob, gender, phone)**
 
-**/clinics/doctors -- GET**
+**/register_patient -- POST(user_id, info)**
 
-**/clinics/doctors/id -- GET, POST, DELETE, UPDATE**
+**/register_doctor -- POST(user_id, clinic_id, speciality)**
 
-**/appointments -- GET**
+**/register_patient_doctor -- POST(user_id, doctor_id)**
 
-**/appointments/id -- GET, POST, DELETE, UPDATE**
+**/register_clinic -- POST(user_id, name, city, address, phone)**
 
-**/history -- GET**
+**/clinic -- GET, POST(user_id, clinic_id, name, city, address, phone)**
+
+**/doctor -- GET(clinic_id), GET(doctor_id)**
 
 
