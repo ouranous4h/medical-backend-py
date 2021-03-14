@@ -228,8 +228,8 @@ def docAppointment(request):
         user = User.objects.get(id = d['user_id'])
         doctor = Doctor.objects.get(id = d['doctor_id'])
 
-        Patient_Doctor = Patient_Doctor(patient = user, doctor = doctor)
-        Patient_Doctor.save()
+        appointment = Patient_Doctor(patient = user, doctor = doctor)
+        appointment.save()
         return HttpResponse(status = 201)
 
 

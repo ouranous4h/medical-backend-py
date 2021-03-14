@@ -37,6 +37,8 @@ class Patient(models.Model):
 class Patient_Doctor(models.Model):
   patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
   doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+  time = models.CharField(max_length=30)
+  info = models.CharField(max_length=100)
 
 
 
