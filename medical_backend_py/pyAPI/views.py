@@ -216,6 +216,23 @@ def doctor(request):
         else:
             return HttpResponse(status = 400)
 
+
+@csrf_exempt
+def docAppointment(request):
+    if request.method == 'POST':
+        d = json.loads(request.body)
+        if any (k not in d for k in ("user_id","doctor_id","time","info")):
+            return HttpResponse(status = 400)
+
+        ## add check if the user is patient user
+        user = User.objects.get(id = d['user_id'])
+        doctor = Doctor.objects.get(id = d['doctor_id'])
+
+        Patient_Doctor = Patient_Doctor(patient = user, doctor = doctor)
+        Patient_Doctor.save()
+        return HttpResponse(status = 201)
+
+
 @csrf_exempt
 def appointments(request):
     if request.method == 'GET':

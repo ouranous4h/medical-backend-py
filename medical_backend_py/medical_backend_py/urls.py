@@ -29,10 +29,9 @@ urlpatterns = [
     path('register_patient_doctor/', views.register_patient_doctor),
     path('register_clinic/', views.register_clinic),
     path('clinic/', views.clinic),
-    path('doctor/', views.doctor)
+    path('doctor/', views.doctor),
+    path('docAppointment/', views.docAppointment)
     # path('patients/', views.patients), ##tolko dlya doctorov (ih pacienti)
-    # path('clinics/', views.clinics), #all clinics available
-    # path('doctors/', views.doctors), #all doctors of that clinic
     # path('appointments/', views.appointments),
     # path('history/', views.history)
 ]
